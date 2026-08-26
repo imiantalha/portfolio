@@ -18,20 +18,25 @@ const footerLinks = [
     external: false,
   },
   {
-    name: "Tel",
+    name: "Phone",
     href: personal.phoneHref,
+    external: false,
+  },
+  {
+    name: "Contact",
+    href: "/#contact",
     external: false,
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="container-site flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-neutral-900 bg-background">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <div>
           <Link
             href="/"
-            className="text-sm font-semibold text-foreground transition-colors hover:text-primary"
+            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
           >
             {personal.name}
           </Link>
@@ -55,7 +60,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border py-5 text-center">
+      <div className="border-t border-neutral-900 py-5 text-center">
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} {personal.name}. All rights reserved.
         </p>
