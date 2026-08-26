@@ -2,7 +2,7 @@ export const personal = {
   name: "Muhammad Talha",
   role: "Software Engineer",
   email: "muhammadtalha.codes@gmail.com",
-  phone: "++1-555-0021",
+  phone: "92 3403409744",
   phoneRaw: "+923403409744",
   phoneHref: "tel:+923403409744",
   location: "Lahore, Punjab, Pakistan",
@@ -21,12 +21,18 @@ export const navLinks = [
 ];
 
 export const hero = {
-  badge: "Available for Projects",
-  title: "Hi, I'm Muhammad Talha",
-  titleHighlight: "Software Engineer",
+  badge: "Open to opportunities",
+  role: "Software Engineer · Backend-Focused Full Stack",
+  title: "Building reliable software for real-world business needs.",
   description:
-    "Building reliable production software with PHP and Laravel. Specialized in REST APIs, databases, integrations, and full-stack delivery with React and Next.js when the product needs it.",
-  features: ["3+ Years Experience", "Production Laravel Systems"],
+    "I'm Muhammad Talha, a backend-focused Software Engineer with 3 years of professional experience building production applications with PHP and Laravel, REST APIs, databases, integrations, testing, background processing, and deployment. I also work across React and Next.js when the product requires full-stack delivery.",
+  primaryButton: "Explore My Work",
+  secondaryButton: "Let's Talk",
+  technologies: ["PHP", "Laravel", "REST APIs", "MySQL", "React", "Next.js"],
+  image: {
+    src: "/images/profile/me.jpg",
+    alt: "Muhammad Talha, Software Engineer",
+  },
 };
 
 export const experiences = [
