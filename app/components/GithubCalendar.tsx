@@ -18,18 +18,17 @@ export default async function GithubCalendar() {
   let graph = null;
   try {
     const { days, total } = await getGithubContributions();
-    const year = new Date().getFullYear();
     graph = (
       <>
         <div className="overflow-x-auto" dir="rtl">
-          <div className="grid w-max grid-flow-col grid-rows-7 gap-1" dir="ltr" role="img" aria-label={`${total} GitHub contributions in ${year}`}>
+          <div className="grid w-max grid-flow-col grid-rows-7 gap-1" dir="ltr" role="img" aria-label={`${total} GitHub contributions in the last two months`}>
             {days.map((day) => (
               <div key={day.date} title={`${day.date}: ${day.count} contributions`} className="h-3 w-3 rounded-[2px] ring-1 ring-inset ring-black/10 dark:ring-white/5" style={cellStyle(day.level)} />
             ))}
           </div>
         </div>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground sm:text-sm">
-          <p>{total} contributions in {year}</p>
+          <p>{total} contributions in the last 2 months</p>
           <div className="flex items-center gap-2"><span>Less</span><div className="flex gap-1">{LEVELS.map((level) => <div key={level} className="h-3 w-3 rounded-[2px] ring-1 ring-inset ring-black/10 dark:ring-white/5" style={cellStyle(level)} />)}</div><span>More</span></div>
         </div>
       </>
@@ -41,7 +40,7 @@ export default async function GithubCalendar() {
   return (
     <div>
       {graph}
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {highlights.map((highlight) => (
           <article key={highlight.title} className="group rounded-xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg sm:p-6">
             <h3 className="text-base font-semibold transition-colors group-hover:text-primary sm:text-lg">{highlight.title}</h3>
