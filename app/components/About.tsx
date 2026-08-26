@@ -11,7 +11,7 @@ export default function About() {
             <h2 className="mb-4 text-2xl font-bold sm:mb-6 sm:text-3xl md:text-4xl">{about.title}</h2>
             <p className="mx-auto max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">{about.description}</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseMe.map((item) => (
               <article key={item.title} className="rounded-lg border border-border bg-background/70 p-4 sm:p-5">
                 <div className="mb-3 flex items-start gap-3">
