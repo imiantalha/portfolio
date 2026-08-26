@@ -105,25 +105,44 @@ export const processSteps = [
 ];
 
 export const about = {
-  subtitle: "About Me",
-  title: "Why Choose Me",
+  subtitle: "Why Hire Me",
+  title: "Engineering experience you can see in the work",
   description:
-    "I bring professional experience building and maintaining production PHP/Laravel systems — APIs, databases, integrations, and full-stack delivery for real business workflows.",
+    "My value is not just the technologies I use. It is the experience of solving real production problems across APIs, databases, integrations, performance, background processing, and deployment — and understanding how those pieces affect the product as a whole.",
 };
 
 export const whyChooseMe = [
-  "Proven production experience",
-  "Backend-focused full stack",
-  "Practical architecture",
-  "Measurable engineering outcomes",
-  "Reliable delivery",
-  "Ongoing production support",
+  {
+    title: "Production-scale backend work",
+    description:
+      "Built and maintained PHP/Laravel systems supporting 1M+ customers/API users, 200+ vendors, thousands of orders, and 6K+ products across marketplace workflows.",
+  },
+  {
+    title: "Performance with measurable outcomes",
+    description:
+      "Investigated database and application bottlenecks and reduced one product-detail operation from approximately 2–3 seconds to about 0.5 seconds through indexing and query optimization.",
+  },
+  {
+    title: "API design built for change",
+    description:
+      "Maintained backward compatibility for mobile clients through versioned REST APIs, allowing older applications to continue working while newer API contracts evolved.",
+  },
+  {
+    title: "Integration and asynchronous engineering",
+    description:
+      "Worked with payments, shipping providers, Firebase/FCM, Algolia/Meilisearch, external MS SQL data, Zendesk webhooks, queues, scheduled jobs, and background processing.",
+  },
+  {
+    title: "Production ownership",
+    description:
+      "Work spans implementation, PHPUnit/API testing, Git workflows, Docker development, Nginx/Vercel deployment, debugging, monitoring, hot fixes, and ongoing maintenance.",
+  },
 ];
 
 export const stats = [
   { value: "3+", label: "Years Experience" },
   { value: "5", label: "Production Systems" },
-  { value: "1M+", label: "API Users" },
+  { value: "1M+", label: "Customers / API Users" },
   { value: "200+", label: "Vendors Supported" },
 ];
 
