@@ -139,13 +139,6 @@ export const whyChooseMe = [
   },
 ];
 
-export const stats = [
-  { value: "3+", label: "Years Experience" },
-  { value: "5", label: "Production Systems" },
-  { value: "1M+", label: "Customers / API Users" },
-  { value: "200+", label: "Vendors Supported" },
-];
-
 export const toolsIUse = [
   { name: "VS Code", icon: "code" },
   { name: "Git", icon: "git" },
