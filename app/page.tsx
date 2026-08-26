@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import EngineeringHighlights from "./components/EngineeringHighlights";
 import Experience from "./components/Experience";
 import FeaturedProjects from "./components/FeaturedProjects";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-import Process from "./components/Process";
 import Skills from "./components/Skills";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function Home() {
         <Skills />
         <FeaturedProjects />
         <Experience />
-        <Process />
+        <EngineeringHighlights />
         <About />
         <Contact />
       </main>
