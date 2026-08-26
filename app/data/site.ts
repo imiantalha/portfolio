@@ -58,5 +58,5 @@ export const whyChooseMe = [
 ];
 
 export const toolsIUse = [
-  { name: "VS Code", icon: "code" }, { name: "Git", icon: "git" }, { name: "GitHub", icon: "github" }, { name: "Postman", icon: "send" }, { name: "Docker", icon: "box" }, { name: "Nginx", icon: "server" }, { name: "Vercel", icon: "cloud" }, { name: "Railway", icon: "cloud" }, { name: "MySQL", icon: "database" }, { name: "PHPUnit", icon: "check" },
+  { name: "VS Code", icon: "code" }, { name: "Git", icon: "git" }, { name: "GitHub", icon: "github" }, { name: "GitHub Copilot", icon: "code" }, { name: "Cursor", icon: "code" }, { name: "Claude", icon: "code" }, { name: "Postman", icon: "send" }, { name: "Docker", icon: "box" }, { name: "Nginx", icon: "server" }, { name: "Vercel", icon: "cloud" }, { name: "Railway", icon: "cloud" }, { name: "MySQL", icon: "database" }, { name: "PHPUnit", icon: "check" },
 ];
