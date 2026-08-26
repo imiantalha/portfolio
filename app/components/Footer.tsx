@@ -1,69 +1,68 @@
 import Link from "next/link";
 import { personal } from "../data/site";
 
-const footerLinks = [
-  {
-    name: "LinkedIn",
-    href: personal.linkedin,
-    external: true,
-  },
-  {
-    name: "GitHub",
-    href: personal.github,
-    external: true,
-  },
-  {
-    name: "Email",
-    href: `mailto:${personal.email}`,
-    external: false,
-  },
-  {
-    name: "Phone",
-    href: personal.phoneHref,
-    external: false,
-  },
-  {
-    name: "Contact",
-    href: "/#contact",
-    external: false,
-  },
+const navigationLinks = [
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-neutral-900 bg-background">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-        <div>
-          <Link
-            href="/"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
-          >
-            {personal.name}
-          </Link>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Software Engineer · PHP / Laravel &amp; Full-Stack Developer
-          </p>
+      <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <Link
+              href="/"
+              className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              {personal.name}
+            </Link>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Software Engineer · Backend-Focused Full Stack
+            </p>
+          </div>
+
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
         </div>
 
-        <div className="flex flex-wrap items-center gap-5">
-          {footerLinks.map((link) => (
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-5 border-t border-neutral-900 pt-5 md:justify-between">
+          <div className="flex flex-wrap items-center gap-5">
             <a
-              key={link.name}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
+              href={personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
-              {link.name}
+              LinkedIn
             </a>
-          ))}
-        </div>
-      </div>
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              GitHub
+            </a>
+          </div>
 
-      <div className="border-t border-neutral-900 py-5 text-center">
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {personal.name}. All rights reserved.
-        </p>
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} {personal.name}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
