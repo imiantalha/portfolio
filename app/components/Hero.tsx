@@ -8,13 +8,10 @@ export default function Hero() {
       aria-labelledby="hero-title"
       className="relative overflow-hidden bg-background"
     >
-      <div className="container-site grid min-h-[calc(100vh-80px)] items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:py-20">
+      <div className="container-site grid min-h-[calc(100vh-80px)] gap-12 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16 lg:py-14">
         <div>
           <div className="flex items-center gap-3">
-            <span
-              aria-hidden="true"
-              className="relative flex h-2.5 w-2.5"
-            >
+            <span aria-hidden="true" className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
             </span>
@@ -37,36 +34,24 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#projects"
-              className="rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
-            >
+            <Link href="#projects" className="rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]">
               {hero.primaryButton}
             </Link>
-            <Link
-              href="#contact"
-              className="rounded-full border border-border px-6 py-3 text-center text-sm font-medium transition-colors hover:border-primary hover:text-primary"
-            >
+            <Link href="#contact" className="rounded-full border border-border px-6 py-3 text-center text-sm font-medium transition-colors hover:border-primary hover:text-primary">
               {hero.secondaryButton}
             </Link>
           </div>
 
-          <div
-            className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground"
-            aria-label="Primary technologies"
-          >
+          <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground" aria-label="Primary technologies">
             {hero.technologies.map((technology) => (
               <span key={technology}>{technology}</span>
             ))}
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex justify-center lg:justify-end lg:pt-2">
           <div className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-4 rounded-full border border-border"
-            />
+            <div aria-hidden="true" className="absolute -inset-4 rounded-full border border-border" />
             <div className="relative h-64 w-64 overflow-hidden rounded-full border border-border shadow-lg sm:h-80 sm:w-80">
               <Image
                 src={hero.image.src}
