@@ -5,9 +5,9 @@ import { toolsIUse } from "../data/site";
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-background py-12 sm:py-16 md:py-20">
+    <section id="skills" className="bg-background py-8 sm:py-10 md:py-12">
       <div className="container-site">
-        <div className="mb-8 text-center sm:mb-12">
+        <div className="mb-8 text-center sm:mb-10">
           <h2 className="mb-3 text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">
             Technologies & Tools
           </h2>
@@ -33,7 +33,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-lg border border-border bg-card p-6 sm:p-8">
+        <div className="mt-10 rounded-lg border border-border bg-card p-6 sm:p-8">
           <h3 className="mb-4 text-lg font-semibold">Tools I use</h3>
           <div className="flex flex-wrap gap-3">
             {toolsIUse.map((tool) => (
@@ -48,7 +48,7 @@ export default function Skills() {
           </div>
         </div>
 
-        <div className="mt-8 rounded-lg border border-border bg-card p-6 sm:p-8">
+        <div className="mt-6 rounded-lg border border-border bg-card p-6 sm:p-8">
           <h3 className="mb-4 text-lg font-semibold">Days I Code</h3>
           <GithubCalendar />
         </div>
