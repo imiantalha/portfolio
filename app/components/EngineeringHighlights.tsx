@@ -9,14 +9,13 @@ const highlights = [
 
 export default function EngineeringHighlights() {
   return (
-    <section aria-labelledby="engineering-highlights-title" className="py-12 sm:py-16 md:py-20">
+    <section aria-labelledby="engineering-highlights-title" className="py-8 sm:py-10 md:py-12">
       <div className="container-site">
-        <div className="mb-8 text-center sm:mb-12">
+        <div className="mb-8 text-center sm:mb-10">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Engineering Evidence</p>
           <h2 id="engineering-highlights-title" className="mb-3 text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">Engineering Highlights</h2>
           <p className="mx-auto max-w-2xl px-4 text-sm text-muted-foreground sm:px-0 sm:text-base">A snapshot of real production problems, integrations, engineering decisions, and scale I have worked with.</p>
         </div>
-
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((highlight) => (
             <article key={highlight.title} className="group rounded-xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg sm:p-6">
