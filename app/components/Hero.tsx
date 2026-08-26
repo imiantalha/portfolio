@@ -1,75 +1,55 @@
-import Image from "next/image";
-import Link from "next/link";
+import { hero } from "../data/site";
 
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden">
-      <div className="mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
-        <div>
-          <div className="flex items-center gap-3">
-            <span aria-hidden="true" className="h-2 w-2 rounded-full bg-green-500" />
-            <span className="text-sm text-neutral-500">Open to opportunities</span>
-          </div>
+    <section
+      aria-labelledby="hero-title"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 pt-16 sm:pt-20"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
+      />
 
-          <p className="mt-8 text-sm font-medium uppercase tracking-[0.25em] text-blue-500">
-            Software Engineer · Backend-Focused Full Stack
-          </p>
+      <div className="container-site py-5 sm:py-6 md:py-10">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="relative mb-4 inline-flex items-center sm:mb-6">
+            <span
+              aria-hidden="true"
+              className="pulse-ring absolute inline-flex h-full w-full rounded-full bg-primary"
+            />
+            <span className="relative inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary sm:px-4 sm:py-2 sm:text-sm">
+              {hero.badge}
+            </span>
+          </div>
 
           <h1
             id="hero-title"
-            className="mt-5 max-w-4xl text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl"
+            className="mb-4 px-2 text-3xl font-bold tracking-tight sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
-            Building reliable software for real-world business needs.
+            {hero.title}{" "}
+            <span className="block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent sm:inline">
+              {hero.titleHighlight}
+            </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-neutral-400">
-            I&apos;m Muhammad Talha, a backend-focused Software Engineer with 3 years of professional experience building production applications with PHP and Laravel, REST APIs, databases, integrations, testing, background processing, and deployment. I also work across React and Next.js when the product requires full-stack delivery.
+          <p className="mx-auto mb-8 max-w-2xl px-4 text-base text-muted-foreground sm:mb-12 sm:px-0 sm:text-lg md:text-xl">
+            {hero.description}
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="#projects"
-              className="rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-transform hover:scale-[1.02]"
-            >
-              Explore My Work
-            </Link>
-            <Link
-              href="#contact"
-              className="rounded-full border border-neutral-700 px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:border-neutral-500"
-            >
-              Let&apos;s Talk
-            </Link>
-          </div>
-
-          <div
-            className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-neutral-500"
-            aria-label="Primary technologies"
-          >
-            <span>PHP</span>
-            <span>Laravel</span>
-            <span>REST APIs</span>
-            <span>MySQL</span>
-            <span>React</span>
-            <span>Next.js</span>
-          </div>
-        </div>
-
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-4 rounded-full border border-neutral-800"
-            />
-            <div className="relative h-64 w-64 overflow-hidden rounded-full border border-neutral-700 sm:h-80 sm:w-80">
-              <Image
-                src="/images/profile/me.jpg"
-                alt="Muhammad Talha, Software Engineer"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 640px) 256px, 320px"
-              />
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+            {hero.features.map((feature) => (
+              <span
+                key={feature}
+                className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground sm:text-sm"
+              >
+                {feature}
+              </span>
+            ))}
           </div>
         </div>
       </div>

@@ -1,18 +1,77 @@
+import { IconMail, IconMapPin, IconPhone } from "./Icons";
+import { personal } from "../data/site";
+
+const details = [
+  {
+    title: "Email",
+    value: personal.email,
+    href: `mailto:${personal.email}`,
+    icon: IconMail,
+  },
+  {
+    title: "Phone",
+    value: personal.phone,
+    href: personal.phoneHref,
+    icon: IconPhone,
+  },
+  {
+    title: "Location",
+    value: personal.location,
+    href: undefined,
+    icon: IconMapPin,
+  },
+];
+
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-neutral-800 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="rounded-3xl border border-neutral-800 bg-neutral-950 px-6 py-16 text-center sm:px-12 sm:py-20">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-blue-500">Contact</p>
-          <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">Let&apos;s build something useful.</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-neutral-500">Whether you&apos;re hiring a software engineer, building a product, or need help solving a technical problem, feel free to get in touch.</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-            <a href="mailto:muhammadtalha.codes@gmail.com" className="w-full rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:scale-[1.02] sm:w-auto">Email Me</a>
-            <a href="tel:+923403409744" className="w-full rounded-full border border-neutral-700 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-neutral-500 sm:w-auto">+92 340 3409744</a>
-            <a href="https://www.linkedin.com/in/imiantalha" target="_blank" rel="noopener noreferrer" className="w-full rounded-full border border-neutral-700 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-neutral-500 sm:w-auto">LinkedIn</a>
-            <a href="https://github.com/imiantalha" target="_blank" rel="noopener noreferrer" className="w-full rounded-full border border-neutral-700 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-neutral-500 sm:w-auto">GitHub</a>
-          </div>
-          <p className="mt-8 text-sm text-neutral-600">muhammadtalha.codes@gmail.com</p>
+    <section id="contact" className="bg-background py-12 sm:py-16 md:py-20">
+      <div className="container-site">
+        <div className="mb-8 text-center sm:mb-12">
+          <p className="mb-2 text-sm font-medium text-primary sm:text-base">
+            Get In Touch
+          </p>
+          <h2 className="mb-3 px-4 text-2xl font-bold sm:mb-4 sm:px-0 sm:text-3xl md:text-4xl">
+            Have a project in mind? Let&apos;s build something useful together.
+          </h2>
+          <p className="mx-auto max-w-2xl px-4 text-sm text-muted-foreground sm:px-0 sm:text-base">
+            I&apos;m always open to discussing new projects, engineering problems, or opportunities to contribute to a product.
+          </p>
+        </div>
+
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3">
+          {details.map((item) => {
+            const Icon = item.icon;
+            const isPhone = item.title === "Phone";
+
+            const card = (
+              <article className="h-full rounded-lg border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div className="mb-4 flex items-center gap-3 sm:gap-4">
+                  <div className="flex-shrink-0 rounded-lg bg-primary/10 p-2 text-primary">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                  <h3 className="text-base font-semibold sm:text-lg">{item.title}</h3>
+                </div>
+                <p
+                  className={`text-sm text-muted-foreground sm:text-base ${
+                    isPhone
+                      ? "whitespace-nowrap font-medium tracking-wide text-foreground"
+                      : "break-words"
+                  }`}
+                  dir={isPhone ? "ltr" : undefined}
+                >
+                  {item.value}
+                </p>
+              </article>
+            );
+
+            return item.href ? (
+              <a key={item.title} href={item.href} className="block">
+                {card}
+              </a>
+            ) : (
+              <div key={item.title}>{card}</div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,135 +1,57 @@
-const skillGroups = [
-  {
-    title: "Core Backend",
-    skills: ["PHP", "Laravel", "REST APIs", "API Versioning", "Authentication", "Authorization", "Webhooks"],
-  },
-  {
-    title: "Engineering",
-    skills: [
-      "Database Optimization",
-      "Queues / Jobs",
-      "Background Processing",
-      "Caching",
-      "Bulk Processing",
-      "Testing / PHPUnit",
-      "Monitoring / Debugging",
-      "Rate Limiting",
-    ],
-  },
-  {
-    title: "Laravel Practices",
-    skills: [
-      "Service Classes",
-      "Dependency Injection",
-      "Repository Pattern",
-      "Events & Listeners",
-      "Task Scheduling",
-      "Notifications & Mail",
-      "Laravel Telescope",
-      "HTTP Client",
-    ],
-  },
-  {
-    title: "Data",
-    skills: [
-      "MySQL",
-      "PostgreSQL",
-      "MS SQL Server",
-      "Database Transactions",
-      "Query Optimization",
-      "Multi-database Workflows",
-    ],
-  },
-  {
-    title: "Full Stack",
-    skills: ["React", "Next.js", "JavaScript / TypeScript", "Blade", "Vite"],
-  },
-  {
-    title: "Integrations",
-    skills: [
-      "Stripe",
-      "PayPal",
-      "FedEx",
-      "DHL",
-      "USPS",
-      "ShipStation",
-      "Firebase / FCM",
-      "Meilisearch",
-      "Algolia",
-    ],
-  },
-  {
-    title: "Delivery",
-    skills: [
-      "Git",
-      "Pull Requests",
-      "Code Reviews",
-      "Docker",
-      "Nginx",
-      "Vercel",
-      "Railway",
-      "Postman",
-    ],
-  },
-  {
-    title: "Security",
-    skills: [
-      "Laravel Sanctum",
-      "Laravel Passport",
-      "Policies & Gates",
-      "RBAC",
-      "CSRF Protection",
-      "Request Validation",
-    ],
-  },
-];
+import GithubCalendar from "./GithubCalendar";
+import { NamedIcon } from "./Icons";
+import { skills } from "../data/skills";
+import { toolsIUse } from "../data/site";
 
 export default function Skills() {
   return (
-    <section id="skills" className="border-t border-neutral-800 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-blue-500">
-            Technical Expertise
-          </p>
-          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            Backend-first engineering, with full-stack delivery.
+    <section id="skills" className="bg-background py-12 sm:py-16 md:py-20">
+      <div className="container-site">
+        <div className="mb-8 text-center sm:mb-12">
+          <h2 className="mb-3 text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">
+            Technologies & Tools
           </h2>
-          <p className="mt-6 text-base leading-7 text-neutral-400">
-            I keep my strongest skills close to the work I can demonstrate: API
-            engineering, databases, application performance, security, testing,
-            asynchronous processing, production debugging, and full-stack delivery.
+          <p className="mx-auto max-w-2xl px-4 text-sm text-muted-foreground sm:px-0 sm:text-base">
+            Modern tools and technologies I use to build production PHP/Laravel applications and full-stack products.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {skillGroups.map((group) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {skills.map((skill) => (
             <article
-              key={group.title}
-              className="rounded-2xl border border-neutral-800 bg-neutral-950 p-6 transition-colors hover:border-neutral-700"
+              key={skill.id}
+              className="rounded-lg border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-lg"
             >
-              <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-white">
-                {group.title}
-              </h3>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-xs text-neutral-400"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div className="mb-3 inline-flex rounded-md bg-primary/10 p-2 text-primary">
+                <NamedIcon name={skill.icon} className="h-5 w-5" />
               </div>
+              <h3 className="mb-2 text-base font-semibold">{skill.title}</h3>
+              <p className="text-sm leading-6 text-muted-foreground">
+                {skill.description}
+              </p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 max-w-3xl text-sm leading-7 text-neutral-600">
-          CI/CD automation and deeper cloud infrastructure are areas I am actively
-          developing; my production experience today is strongest in application
-          engineering, Git workflows, deployment, troubleshooting, and maintenance.
-        </p>
+        <div className="mt-12 rounded-lg border border-border bg-card p-6 sm:p-8">
+          <h3 className="mb-4 text-lg font-semibold">Tools I use</h3>
+          <div className="flex flex-wrap gap-3">
+            {toolsIUse.map((tool) => (
+              <span
+                key={tool.name}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-muted px-3 py-1.5 text-sm text-foreground"
+              >
+                <NamedIcon name={tool.icon} className="h-4 w-4 text-primary" />
+                {tool.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-lg border border-border bg-card p-6 sm:p-8">
+          <h3 className="mb-4 text-lg font-semibold">Days I Code</h3>
+          <GithubCalendar />
+        </div>
       </div>
     </section>
   );

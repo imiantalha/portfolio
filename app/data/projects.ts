@@ -215,7 +215,12 @@ export const ems: Project = {
     description: "Worked across the Laravel API and Next.js / React interface, connecting backend business workflows with the application UI.",
     results: ["Laravel backend", "Next.js / React interface", "Laravel Sanctum", "RBAC", "Attendance and leave workflows", "MySQL"],
   },
-  gallery: [{ src: "/images/ems/dashboard.png", alt: "Employee management system dashboard" }],
+  gallery: [
+    { src: "/images/ems/dashboard.png", alt: "Employee management system dashboard" },
+    { src: "/images/ems/calendar.png", alt: "Employee attendance calendar" },
+    { src: "/images/ems/leaves.png", alt: "Employee leave management interface" },
+    { src: "/images/ems/wfh.png", alt: "Work from home request interface" },
+  ],
 };
 
 export const pakRailways: Project = {
@@ -244,7 +249,12 @@ export const pakRailways: Project = {
     description: "Dashboard search brought relevant orders, bids, shipments, and other enterprise data into one search experience.",
     results: ["Unified dashboard search", "Algolia search", "Bid management", "Order and shipment workflows", "Filtered reporting", "Excel imports and exports"],
   },
-  gallery: [{ src: "/images/pak-railways/dashboard.png", alt: "Pak Railways tender workflow dashboard" }],
+  gallery: [
+    { src: "/images/pak-railways/dashboard.png", alt: "Pak Railways tender workflow dashboard" },
+    { src: "/images/pak-railways/bids.png", alt: "Pak Railways bid management interface" },
+    { src: "/images/pak-railways/shipments.png", alt: "Pak Railways shipment workflow interface" },
+    { src: "/images/pak-railways/reports.png", alt: "Pak Railways reporting interface" },
+  ],
 };
 
 export const doorToDoor: Project = {
@@ -264,7 +274,12 @@ export const doorToDoor: Project = {
     description: "A focused Canada-oriented storefront using familiar single-vendor e-commerce patterns.",
     results: ["Single-vendor architecture", "Blade frontend", "Product catalogue", "Category filtering", "Authentication"],
   },
-  gallery: [{ src: "/images/door-to-door/home.png", alt: "Door to Door e-commerce homepage" }],
+  gallery: [
+    { src: "/images/door-to-door/home.png", alt: "Door to Door e-commerce homepage" },
+    { src: "/images/door-to-door/products.png", alt: "Door to Door product catalogue" },
+    { src: "/images/door-to-door/filters.png", alt: "Door to Door category and product filters" },
+    { src: "/images/door-to-door/login.png", alt: "Door to Door authentication screen" },
+  ],
 };
 
 export const featuredProjects: Project[] = [mallshark, textileSouk];

@@ -1,60 +1,57 @@
 import Link from "next/link";
+import { IconGithub, IconLinkedin } from "./Icons";
+import { navLinks, personal } from "../data/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-900">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+    <footer className="border-t border-border bg-background">
+      <div className="container-site flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <Link
-            href="/"
-            className="text-sm font-medium text-white transition-colors hover:text-neutral-300"
-          >
-            Muhammad Talha
+          <Link href="/" className="text-sm font-semibold text-foreground">
+            {personal.name}
           </Link>
-
-          <p className="mt-1 text-xs text-neutral-600">
-            Software Engineer · PHP / Laravel &amp; Full-Stack Developer
+          <p className="mt-2 max-w-md text-sm text-muted-foreground">
+            Software Engineer specializing in PHP, Laravel, REST APIs, and full-stack application development.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-5">
+          {navLinks
+            .filter((link) => link.href !== "#skills")
+            .map((link) => (
+              <Link
+                key={link.href}
+                href={`/${link.href}`}
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                {link.name}
+              </Link>
+            ))}
+
           <a
-            href="https://www.linkedin.com/in/imiantalha"
+            href={personal.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-neutral-500 transition-colors hover:text-white"
+            className="text-muted-foreground transition-colors hover:text-primary"
+            aria-label="GitHub"
           >
-            LinkedIn
+            <IconGithub className="h-5 w-5" />
           </a>
-
           <a
-            href="https://github.com/imiantalha"
+            href={personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-neutral-500 transition-colors hover:text-white"
+            className="text-muted-foreground transition-colors hover:text-primary"
+            aria-label="LinkedIn"
           >
-            GitHub
+            <IconLinkedin className="h-5 w-5" />
           </a>
-
-          <a
-            href="mailto:muhammadtalha.codes@gmail.com"
-            className="text-sm text-neutral-500 transition-colors hover:text-white"
-          >
-            Email
-          </a>
-
-          <Link
-            href="/#contact"
-            className="text-sm text-neutral-500 transition-colors hover:text-white"
-          >
-            Contact
-          </Link>
         </div>
       </div>
 
-      <div className="border-t border-neutral-900 py-5 text-center">
-        <p className="text-xs text-neutral-700">
-          © {new Date().getFullYear()} Muhammad Talha. All rights reserved.
+      <div className="border-t border-border py-5 text-center">
+        <p className="text-xs text-muted-foreground">
+          © {new Date().getFullYear()} {personal.name}. All rights reserved.
         </p>
       </div>
     </footer>

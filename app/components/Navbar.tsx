@@ -3,16 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IconClose, IconMenu } from "./Icons";
+import ThemeToggle from "./ThemeToggle";
+import { navLinks, personal } from "../data/site";
 
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
-
-const sectionIds = links.map(({ href }) => href.slice(1));
+const sectionIds = navLinks.map(({ href }) => href.slice(1));
 const NAV_OFFSET = 120;
 const ACTIVE_MARKER_RATIO = 0.35;
 
@@ -44,9 +39,6 @@ export default function Navbar() {
           return;
         }
 
-        // Use a stable point inside the viewport rather than section visibility.
-        // This prevents long sections from losing their active state when their
-        // top is far above the viewport or when another section briefly appears.
         const marker = window.scrollY + Math.max(
           NAV_OFFSET,
           window.innerHeight * ACTIVE_MARKER_RATIO,
@@ -75,68 +67,127 @@ export default function Navbar() {
     updateActiveSection();
     window.addEventListener("scroll", updateActiveSection, { passive: true });
     window.addEventListener("resize", updateActiveSection);
-    window.addEventListener("hashchange", updateActiveSection);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", updateActiveSection);
       window.removeEventListener("resize", updateActiveSection);
-      window.removeEventListener("hashchange", updateActiveSection);
     };
   }, [isHome]);
 
   const closeMenu = () => setOpen(false);
   const getHref = (href: string) => (isHome ? href : `/${href}`);
 
-  const handleSectionClick = (sectionId: string) => {
-    if (isHome) setActiveSection(sectionId);
-    closeMenu();
-  };
-
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-900 bg-[#0a0a0a]/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Main navigation">
-        <Link href="/" className="text-sm font-semibold tracking-tight text-white" onClick={closeMenu}>
-          Muhammad Talha
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
+      <nav
+        className="container-site flex items-center justify-between py-4"
+        aria-label="Main navigation"
+      >
+        <Link
+          href="/"
+          className="text-sm font-semibold tracking-tight text-foreground"
+          onClick={closeMenu}
+        >
+          {personal.name}
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
-          {links.map((link) => {
+          {navLinks.map((link) => {
             const sectionId = link.href.slice(1);
             const isActive = isHome && activeSection === sectionId;
 
             return (
-              <Link key={link.href} href={getHref(link.href)} onClick={() => handleSectionClick(sectionId)} aria-current={isActive ? "location" : undefined} className={`relative py-1 text-sm transition-colors duration-200 ${isActive ? "text-white" : "text-neutral-500 hover:text-white"}`}>
-                {link.label}
-                <span aria-hidden="true" className={`absolute -bottom-1 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-blue-500 transition-all duration-200 ${isActive ? "w-4 opacity-100" : "w-0 opacity-0"}`} />
+              <Link
+                key={link.href}
+                href={getHref(link.href)}
+                onClick={() => {
+                  if (isHome) setActiveSection(sectionId);
+                  closeMenu();
+                }}
+                aria-current={isActive ? "location" : undefined}
+                className={`relative py-1 text-sm transition-colors ${
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.name}
+                <span
+                  aria-hidden="true"
+                  className={`absolute -bottom-1 left-1/2 h-0.5 -translate-x-1/2 rounded-full bg-primary transition-all ${
+                    isActive ? "w-4 opacity-100" : "w-0 opacity-0"
+                  }`}
+                />
               </Link>
             );
           })}
 
-          <a href="/Muhammad-Talha-CV.pdf" target="_blank" rel="noopener noreferrer" className="rounded-full border border-neutral-700 px-4 py-2 text-sm text-white transition-colors hover:border-neutral-500" aria-label="Open Muhammad Talha resume PDF in a new tab">
+          <ThemeToggle />
+
+          <a
+            href={personal.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+            aria-label="Open Muhammad Talha resume PDF in a new tab"
+          >
             Resume
           </a>
         </div>
 
-        <button type="button" onClick={() => setOpen((value) => !value)} aria-label="Toggle navigation" aria-expanded={open} aria-controls="mobile-navigation" className="rounded-md px-2 py-1 text-xl leading-none text-neutral-400 transition-colors hover:text-white md:hidden">
-          <span aria-hidden="true">{open ? "×" : "☰"}</span>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle size="sm" />
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label="Toggle navigation"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            className="rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {open ? <IconClose className="h-5 w-5" /> : <IconMenu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
-      <div id="mobile-navigation" hidden={!open} className="border-t border-neutral-900 px-6 py-5 md:hidden">
+      <div
+        id="mobile-navigation"
+        hidden={!open}
+        className="border-t border-border px-4 py-5 md:hidden"
+      >
         <div className="flex flex-col gap-4">
-          {links.map((link) => {
+          {navLinks.map((link) => {
             const sectionId = link.href.slice(1);
             const isActive = isHome && activeSection === sectionId;
 
             return (
-              <Link key={link.href} href={getHref(link.href)} onClick={() => handleSectionClick(sectionId)} aria-current={isActive ? "location" : undefined} className={`border-l-2 pl-3 text-sm transition-colors ${isActive ? "border-blue-500 text-white" : "border-transparent text-neutral-400 hover:text-white"}`}>
-                {link.label}
+              <Link
+                key={link.href}
+                href={getHref(link.href)}
+                onClick={() => {
+                  if (isHome) setActiveSection(sectionId);
+                  closeMenu();
+                }}
+                aria-current={isActive ? "location" : undefined}
+                className={`border-l-2 pl-3 text-sm ${
+                  isActive
+                    ? "border-primary text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {link.name}
               </Link>
             );
           })}
 
-          <a href="/Muhammad-Talha-CV.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="mt-2 inline-flex w-fit rounded-full border border-neutral-700 px-4 py-2 text-sm text-white" aria-label="Open Muhammad Talha resume PDF in a new tab">
+          <a
+            href={personal.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+            className="mt-2 inline-flex w-fit rounded-md border border-border px-4 py-2 text-sm font-medium"
+          >
             Resume
           </a>
         </div>
