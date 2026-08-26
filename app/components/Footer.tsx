@@ -26,7 +26,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <nav
+            aria-label="Footer navigation"
+            className="flex flex-wrap items-center gap-x-5 gap-y-3"
+          >
             {navigationLinks.map((link) => (
               <Link
                 key={link.name}
@@ -39,8 +42,8 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-5 border-t border-neutral-900 pt-5 md:justify-between">
-          <div className="flex flex-wrap items-center gap-5">
+        <div className="mt-6 flex flex-col gap-4 border-t border-neutral-900 pt-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <a
               href={personal.linkedin}
               target="_blank"
