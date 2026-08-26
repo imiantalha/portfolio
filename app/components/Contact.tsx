@@ -73,6 +73,37 @@ export default function Contact() {
             );
           })}
         </div>
+
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href={`mailto:${personal.email}`}
+            className="w-full rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] sm:w-auto"
+          >
+            Email Me
+          </a>
+          <a
+            href={personal.phoneHref}
+            className="w-full rounded-full border border-border px-6 py-3 text-center text-sm font-medium transition-colors hover:border-primary hover:text-primary sm:w-auto"
+          >
+            {personal.phone}
+          </a>
+          <a
+            href={personal.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full rounded-full border border-border px-6 py-3 text-center text-sm font-medium transition-colors hover:border-primary hover:text-primary sm:w-auto"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full rounded-full border border-border px-6 py-3 text-center text-sm font-medium transition-colors hover:border-primary hover:text-primary sm:w-auto"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
     </section>
   );

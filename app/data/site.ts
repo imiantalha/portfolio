@@ -2,7 +2,7 @@ export const personal = {
   name: "Muhammad Talha",
   role: "Software Engineer",
   email: "muhammadtalha.codes@gmail.com",
-  phone: "92 3403409744",
+  phone: "++1-555-0021",
   phoneRaw: "+923403409744",
   phoneHref: "tel:+923403409744",
   location: "Lahore, Punjab, Pakistan",
