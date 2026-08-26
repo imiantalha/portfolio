@@ -1,16 +1,16 @@
+import type { Metadata } from "next";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Education from "./components/Education";
-import EngineeringArchitecture from "./components/EngineeringArchitecture";
-import EngineeringEvidence from "./components/EngineeringEvidence";
-import Experience from "./components/Experience";
 import FeaturedProjects from "./components/FeaturedProjects";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Metrics from "./components/Metrics";
 import Navbar from "./components/Navbar";
-import Recognition from "./components/Recognition";
+import Process from "./components/Process";
 import Skills from "./components/Skills";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -19,15 +19,10 @@ export default function Home() {
 
       <main id="main-content">
         <Hero />
-        <Metrics />
-        <EngineeringEvidence />
-        <FeaturedProjects />
-        <Experience />
         <Skills />
-        <EngineeringArchitecture />
+        <FeaturedProjects />
+        <Process />
         <About />
-        <Education />
-        <Recognition />
         <Contact />
       </main>
 

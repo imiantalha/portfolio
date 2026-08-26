@@ -5,11 +5,16 @@ export type ProjectImage = {
 
 export type Project = {
   number: string;
+  slug: string;
   title: string;
   category: string;
+  badge: string;
   description: string;
+  shortDescription: string;
   role: string;
   technologies: string[];
+  githubUrl?: string | null;
+  liveUrl?: string | null;
   contributions: string[];
   architecture?: {
     title: string;
@@ -30,10 +35,14 @@ export type Project = {
 
 export const mallshark: Project = {
   number: "01",
+  slug: "mallshark",
   title: "Mallshark",
   category: "Multi-Vendor E-commerce Marketplace",
+  badge: "E-commerce",
   description:
     "Production marketplace covering vendors, customers, products, orders, checkout, payments, shipping, search, notifications, inventory, reporting, and mobile APIs.",
+  shortDescription:
+    "Multi-vendor marketplace with payments, shipping, search, notifications, and versioned mobile APIs.",
   role: "Backend / Full-Stack Software Engineer",
   technologies: ["PHP", "Laravel", "MySQL", "Laravel Passport", "REST APIs", "Stripe", "PayPal", "Crypto.com", "FedEx", "DHL", "USPS", "ShipStation", "Algolia", "Meilisearch", "Firebase / FCM", "Queues & Jobs"],
   contributions: [
@@ -102,10 +111,14 @@ export const mallshark: Project = {
 
 export const textileSouk: Project = {
   number: "02",
+  slug: "textile-souk",
   title: "Textile Souk",
   category: "B2B Textile Marketplace · API-First Backend",
+  badge: "B2B Marketplace",
   description:
     "API-first mobile backend covering products, orders, inquiries, shipments, cargo, stock, warehouse transfers, notifications, reports, and external business data.",
+  shortDescription:
+    "API-first B2B backend with MS SQL pricing, warehouse transfers, and Zendesk support workflows.",
   role: "Backend Engineer",
   technologies: ["PHP", "Laravel", "MySQL", "MS SQL Server", "REST APIs", "Firebase / FCM", "Zendesk"],
   contributions: [
@@ -179,9 +192,13 @@ export const textileSouk: Project = {
 
 export const ems: Project = {
   number: "03",
+  slug: "employee-management-system",
   title: "Employee Management System",
   category: "HR & Employee Management",
+  badge: "HR",
   description: "HR platform covering attendance, leave, employee workflows, RBAC, REST APIs, and a Next.js / React interface.",
+  shortDescription:
+    "HR platform with attendance, leave, Sanctum auth, RBAC, and a Next.js / React interface.",
   role: "Backend / Full-Stack Software Engineer",
   technologies: ["Laravel", "PHP", "Next.js", "React", "REST APIs", "Laravel Sanctum", "RBAC", "MySQL"],
   contributions: [
@@ -203,9 +220,13 @@ export const ems: Project = {
 
 export const pakRailways: Project = {
   number: "04",
+  slug: "pak-railways-tender-workflow",
   title: "Pak Railways Tender Workflow Management System",
   category: "Enterprise Workflow Management",
+  badge: "Enterprise",
   description: "Enterprise workflow system covering tenders, bids, orders, shipments, reporting, filters, imports/exports, and unified dashboard search.",
+  shortDescription:
+    "Enterprise tender workflows with unified search, reporting, and bulk Excel imports/exports.",
   role: "Software Engineer",
   technologies: ["Laravel", "PHP", "MySQL", "Algolia", "DataTables", "Excel Imports / Exports", "RBAC"],
   contributions: [
@@ -228,9 +249,13 @@ export const pakRailways: Project = {
 
 export const doorToDoor: Project = {
   number: "05",
+  slug: "door-to-door",
   title: "Door to Door / Fresco Canada",
   category: "Canada-Focused Single-Vendor E-commerce",
+  badge: "E-commerce",
   description: "Single-vendor e-commerce implementation using Laravel and Blade, covering authentication, catalogue, categories, filtering, storefront, and backend integration.",
+  shortDescription:
+    "Canada-focused Laravel storefront with catalogue, filtering, authentication, and admin workflows.",
   role: "Software Engineer",
   technologies: ["Laravel", "PHP", "Blade", "MySQL", "E-commerce"],
   contributions: ["Authentication", "Product listing and catalogue", "Category browsing and filtering", "Storefront and dashboard interfaces", "Backend integration"],
@@ -245,3 +270,7 @@ export const doorToDoor: Project = {
 export const featuredProjects: Project[] = [mallshark, textileSouk];
 export const otherProjects: Project[] = [ems, pakRailways, doorToDoor];
 export const projects: Project[] = [mallshark, textileSouk, ems, pakRailways, doorToDoor];
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}

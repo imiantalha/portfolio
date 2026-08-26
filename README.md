@@ -14,6 +14,8 @@ My professional work focuses on building and maintaining production applications
 
 The portfolio highlights selected engineering work, technical decisions, measurable outcomes, professional experience, and the broader technologies I work with.
 
+GitHub profile: [github.com/imiantalha](https://github.com/imiantalha)
+
 ## Engineering Highlights
 
 ### Performance Optimization
