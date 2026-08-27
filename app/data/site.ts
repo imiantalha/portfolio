@@ -10,6 +10,8 @@ export const personal = {
   githubUser: "imiantalha",
   linkedin: "https://www.linkedin.com/in/imiantalha",
   resume: "/Muhammad-Talha-CV.pdf",
+  fiverr: "https://www.fiverr.com/imiantalha",
+  upwork: "https://www.upwork.com/freelancers/~0129afd82850749f05?viewMode=1",
 };
 
 export const navLinks = [
@@ -52,6 +54,7 @@ export const whyChooseMe = [
   { title: "API design built for change", description: "Maintained backward compatibility for mobile clients through versioned REST APIs, allowing older applications to continue working while newer API contracts evolved." },
   { title: "Integration and asynchronous engineering", description: "Worked with payments, shipping providers, Firebase/FCM, Algolia/Meilisearch, external MS SQL data, Zendesk webhooks, queues, scheduled jobs, and background processing." },
   { title: "Production ownership", description: "Work spans implementation, PHPUnit/API testing, Git workflows, Docker development, Nginx/Vercel deployment, debugging, monitoring, hot fixes, and ongoing maintenance." },
+  { title: "10+ production systems", description: "Successfully led the development and maintenance of multiple production systems under tight deadlines and high availability requirements." }
 ];
 
 export const toolsIUse = [
