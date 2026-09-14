@@ -8,6 +8,10 @@ function cellStyle(level: number) {
   return { backgroundColor: `var(--contribution-${clamped})` };
 }
 
+function contributionDayUrl(date: string) {
+  return `${personal.github}?tab=overview&from=${date}&to=${date}`;
+}
+
 const highlights = [
   { title: "Continuous Learning", description: "Deepening my knowledge of backend architecture, API design, databases, performance, testing, and modern full-stack development." },
   { title: "Personal Engineering", description: "Building and improving projects outside day-to-day work to experiment with new technologies, patterns, and production practices." },
@@ -21,9 +25,18 @@ export default async function GithubCalendar() {
     contributionContent = (
       <div className="min-w-0">
         <div className="overflow-x-auto" dir="rtl">
-          <div className="grid w-max grid-flow-col grid-rows-7 gap-1" dir="ltr" role="img" aria-label={`${total} GitHub contributions in the last two months`}>
+          <div className="grid w-max grid-flow-col grid-rows-7 gap-1" dir="ltr" role="group" aria-label={`${total} GitHub contributions in the last two months`}>
             {days.map((day) => (
-              <div key={day.date} title={`${day.date}: ${day.count} contributions`} className="h-3 w-3 rounded-[2px] ring-1 ring-inset ring-black/10 dark:ring-white/5" style={cellStyle(day.level)} />
+              <a
+                key={day.date}
+                href={contributionDayUrl(day.date)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${day.date}: ${day.count} GitHub contributions. View contributions for this day.`}
+                title={`${day.date}: ${day.count} contributions — click to view GitHub history`}
+                className="block h-3 w-3 rounded-[2px] outline-none transition-transform hover:scale-125 focus-visible:scale-125 focus-visible:ring-2 focus-visible:ring-primary"
+                style={cellStyle(day.level)}
+              />
             ))}
           </div>
         </div>

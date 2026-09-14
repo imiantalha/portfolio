@@ -49,7 +49,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end lg:pt-2">
+        <div className="flex justify-center lg:justify-end lg:pr-8 lg:pt-2">
           <div className="relative">
             <div aria-hidden="true" className="absolute -inset-4 rounded-full border border-border" />
             <div className="relative h-64 w-64 overflow-hidden rounded-full border border-border shadow-lg sm:h-80 sm:w-80">
