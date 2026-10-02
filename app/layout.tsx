@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
+import BackgroundGrid from "./components/BackgroundGrid";
 import { personal } from "./data/site";
 import "./globals.css";
 
