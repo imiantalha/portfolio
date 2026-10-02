@@ -8,8 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 import { navLinks, personal } from "../data/site";
 
 const sectionIds = navLinks.map(({ href }) => href.slice(1));
-const NAV_OFFSET = 120;
-const ACTIVE_MARKER_RATIO = 0.35;
+const ACTIVE_MARKER_RATIO = 0.45;
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,10 +38,7 @@ export default function Navbar() {
           return;
         }
 
-        const marker = window.scrollY + Math.max(
-          NAV_OFFSET,
-          window.innerHeight * ACTIVE_MARKER_RATIO,
-        );
+        const marker = window.scrollY + window.innerHeight * ACTIVE_MARKER_RATIO;
 
         let current = sections[0]?.id ?? null;
 
