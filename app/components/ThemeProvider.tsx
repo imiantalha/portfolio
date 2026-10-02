@@ -27,21 +27,16 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const current = document.documentElement.classList.contains("dark")
+  const [theme, setTheme] = useState<Theme>(() =>
+    typeof window !== "undefined" &&
+    document.documentElement.classList.contains("dark")
       ? "dark"
-      : "light";
-    setTheme(current);
-    setReady(true);
-  }, []);
+      : "light",
+  );
 
   useEffect(() => {
-    if (!ready) return;
     applyTheme(theme);
-  }, [ready, theme]);
+  }, [theme]);
 
   const toggleTheme = useCallback(() => {
     setTheme((value) => (value === "light" ? "dark" : "light"));
