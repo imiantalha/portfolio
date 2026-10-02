@@ -8,7 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 import { navLinks, personal } from "../data/site";
 
 const sectionIds = navLinks.map(({ href }) => href.slice(1));
-const ACTIVE_MARKER_RATIO = 0.45;
+const ACTIVE_MARKER_RATIO = 0.35;
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -30,28 +30,25 @@ export default function Navbar() {
     const updateActiveSection = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const scrollBottom = window.scrollY + window.innerHeight;
-        const pageBottom = document.documentElement.scrollHeight;
-
-        if (scrollBottom >= pageBottom - 8) {
-          setActiveSection("contact");
-          return;
-        }
-
-        const marker = window.scrollY + window.innerHeight * ACTIVE_MARKER_RATIO;
+        const marker = window.innerHeight * ACTIVE_MARKER_RATIO;
 
         let current = sections[0]?.id ?? null;
+        let bestDistance = Number.POSITIVE_INFINITY;
 
         for (const section of sections) {
-          const top = section.offsetTop;
-          const bottom = top + section.offsetHeight;
+          const rect = section.getBoundingClientRect();
 
-          if (marker >= top && marker < bottom) {
+          if (rect.top <= marker && rect.bottom >= marker) {
             current = section.id;
+            bestDistance = 0;
             break;
           }
 
-          if (marker >= bottom) {
+          const distance =
+            rect.top > marker ? rect.top - marker : marker - rect.bottom;
+
+          if (distance < bestDistance) {
+            bestDistance = distance;
             current = section.id;
           }
         }
