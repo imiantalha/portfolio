@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type Direction = "up" | "left" | "right" | "scale";
 
@@ -18,28 +18,38 @@ export default function ScrollReveal({
   className = "",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion) {
+      element.dataset.revealed = "true";
       return;
     }
 
+    const reveal = () => {
+      element.dataset.revealed = "true";
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
+        if (!entry?.isIntersecting) return;
+        reveal();
+        observer.disconnect();
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -12% 0px",
+      },
     );
 
     observer.observe(element);
+
     return () => observer.disconnect();
   }, []);
 
@@ -47,7 +57,7 @@ export default function ScrollReveal({
     <div
       ref={ref}
       data-reveal={direction}
-      data-revealed={visible ? "true" : "false"}
+      data-revealed="false"
       className={className}
       style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
     >
