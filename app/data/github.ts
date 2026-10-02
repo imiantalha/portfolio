@@ -18,7 +18,7 @@ function toDateKey(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
-function buildTwoMonthWindow(contributions: ContributionDay[]) {
+function buildThreeMonthWindow(contributions: ContributionDay[]) {
   const byDate = new Map(
     contributions.map((day) => [day.date, day] as const),
   );
@@ -27,7 +27,7 @@ function buildTwoMonthWindow(contributions: ContributionDay[]) {
   today.setHours(0, 0, 0, 0);
 
   const start = new Date(today);
-  start.setMonth(start.getMonth() - 2);
+  start.setMonth(start.getMonth() - 3);
 
   const firstDay = new Date(start);
   firstDay.setDate(firstDay.getDate() - firstDay.getDay());
@@ -64,7 +64,7 @@ export async function getGithubContributions() {
 
   const data = (await response.json()) as GithubApiResponse;
   const contributions = Array.isArray(data.contributions) ? data.contributions : [];
-  const days = buildTwoMonthWindow(contributions);
+  const days = buildThreeMonthWindow(contributions);
   const total = days.reduce((sum, day) => sum + day.count, 0);
 
   return { days, total };
