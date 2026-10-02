@@ -3,7 +3,7 @@ import { about, whyChooseMe } from "../data/site";
 
 export default function About() {
   return (
-    <section id="about" className="bg-gradient-to-br from-background to-primary/5 py-12 sm:py-16 md:py-20">
+    <section id="about" className="bg-gradient-to-br from-transparent to-primary/5 py-12 sm:py-16 md:py-20">
       <div className="container-site">
         <div className="mx-auto max-w-5xl">
           <div className="mb-8 text-center sm:mb-12">
