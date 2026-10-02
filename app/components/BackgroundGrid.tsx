@@ -2,7 +2,7 @@ export default function BackgroundGrid() {
   return (
     <div
       aria-hidden="true"
-      className="interactive-background fixed inset-0 -z-10 overflow-hidden"
+      className="interactive-background fixed inset-0 z-0 overflow-hidden"
     >
       <div className="interactive-background__grid absolute inset-0" />
       <div className="interactive-background__glow interactive-background__glow--one absolute left-[8%] top-[12%] h-72 w-72 rounded-full" />
