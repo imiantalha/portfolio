@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import BackgroundGrid from "./components/BackgroundGrid";
+import BackgroundGrid from "./components/BackgroundGrid";
 import { personal } from "./data/site";
 import "./globals.css";
 
@@ -132,15 +133,18 @@ export default function RootLayout({
       <body className={`${inter.variable} bg-background font-sans text-foreground antialiased`}>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ThemeProvider>
+          <BackgroundGrid />
+          <div className="relative z-10">
           <a className="skip-link" href="#main-content">
             Skip to content
           </a>
           {children}
-          <ScrollToTop />
-          <script
+            <ScrollToTop />
+            <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-          />
+            />
+          </div>
         </ThemeProvider>
       </body>
     </html>
