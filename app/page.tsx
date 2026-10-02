@@ -17,41 +17,39 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <ScrollReveal direction="up">
-        <Navbar />
-      </ScrollReveal>
+      <Navbar />
 
       <main id="main-content">
         <ScrollReveal direction="up">
           <Hero />
         </ScrollReveal>
 
-        <ScrollReveal direction="left" delay={60}>
+        <ScrollReveal direction="left" delay={40}>
           <Skills />
         </ScrollReveal>
 
-        <ScrollReveal direction="right" delay={80}>
+        <ScrollReveal direction="right" delay={60}>
           <FeaturedProjects />
         </ScrollReveal>
 
-        <ScrollReveal direction="left" delay={100}>
+        <ScrollReveal direction="left" delay={40}>
           <Experience />
         </ScrollReveal>
 
-        <ScrollReveal direction="scale" delay={80}>
+        <ScrollReveal direction="right" delay={60}>
           <EngineeringHighlights />
         </ScrollReveal>
 
-        <ScrollReveal direction="right" delay={100}>
+        <ScrollReveal direction="left" delay={40}>
           <About />
         </ScrollReveal>
 
-        <ScrollReveal direction="left" delay={80}>
+        <ScrollReveal direction="right" delay={60}>
           <Contact />
         </ScrollReveal>
       </main>
 
-      <ScrollReveal direction="up" delay={80}>
+      <ScrollReveal direction="up" delay={40}>
         <Footer />
       </ScrollReveal>
     </>
