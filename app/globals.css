@@ -14,6 +14,9 @@
   --primary-foreground: #f8fafc;
   --border: #e2e8f0;
   --ring: #2563eb;
+  --grid-line: rgba(15, 23, 42, 0.075);
+  --grid-point: rgba(37, 99, 235, 0.12);
+  --grid-accent: #64748b;
   --contribution-0: #ebedf0;
   --contribution-1: #9be9a8;
   --contribution-2: #40c463;
@@ -34,6 +37,9 @@ html.dark {
   --primary-foreground: #f8fafc;
   --border: #1e293b;
   --ring: #3b82f6;
+  --grid-line: rgba(148, 163, 184, 0.085);
+  --grid-point: rgba(59, 130, 246, 0.18);
+  --grid-accent: #334155;
   --contribution-0: #161b22;
   --contribution-1: #0e4429;
   --contribution-2: #006d32;
@@ -174,5 +180,92 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* Interactive portfolio background */
+.interactive-background {
+  background: var(--background);
+}
+
+.interactive-background__grid {
+  opacity: 0.72;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    radial-gradient(circle at center, var(--grid-point) 1px, transparent 1.2px);
+  background-size: 32px 32px, 32px 32px, 32px 32px;
+  background-position: center;
+}
+
+.interactive-background__glow {
+  filter: blur(72px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.interactive-background__glow--one {
+  background: var(--primary);
+}
+
+.interactive-background__glow--two {
+  background: var(--grid-accent);
+}
+
+.interactive-background__glow--three {
+  background: var(--primary);
+}
+
+[data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="up"] {
+  transform: translate3d(0, 44px, 0);
+}
+
+[data-reveal="left"] {
+  transform: translate3d(-64px, 0, 0);
+}
+
+[data-reveal="right"] {
+  transform: translate3d(64px, 0, 0);
+}
+
+[data-reveal="scale"] {
+  transform: translate3d(0, 18px, 0) scale(0.96);
+}
+
+[data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (max-width: 639px) {
+  .interactive-background__grid {
+    background-size: 26px 26px, 26px 26px, 26px 26px;
+  }
+
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translate3d(0, 36px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-background__glow {
+    display: none;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
