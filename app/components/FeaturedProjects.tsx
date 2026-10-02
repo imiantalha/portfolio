@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
   };
 
   return (
-    <section id="projects" className="bg-background py-8 sm:py-10 md:py-12">
+    <section id="projects" className="bg-transparent py-8 sm:py-10 md:py-12">
       <div className="container-site">
         <div className="mb-8 text-center sm:mb-10">
           <h2 className="mb-3 text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">

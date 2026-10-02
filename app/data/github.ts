@@ -29,11 +29,19 @@ function buildTwoMonthWindow(contributions: ContributionDay[]) {
   const start = new Date(today);
   start.setMonth(start.getMonth() - 2);
 
+  const firstDay = new Date(start);
+  firstDay.setDate(firstDay.getDate() - firstDay.getDay());
+
   const days: ContributionDay[] = [];
 
-  for (let cursor = new Date(start); cursor <= today; cursor.setDate(cursor.getDate() + 1)) {
+  for (
+    let cursor = new Date(firstDay);
+    cursor <= today;
+    cursor.setDate(cursor.getDate() + 1)
+  ) {
     const date = toDateKey(cursor);
     const match = byDate.get(date);
+
     days.push({
       date,
       count: match?.count ?? 0,

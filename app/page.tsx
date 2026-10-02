@@ -7,6 +7,7 @@ import FeaturedProjects from "./components/FeaturedProjects";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import ScrollReveal from "./components/ScrollReveal";
 import Skills from "./components/Skills";
 
 export const metadata: Metadata = {
@@ -19,16 +20,38 @@ export default function Home() {
       <Navbar />
 
       <main id="main-content">
-        <Hero />
-        <Skills />
-        <FeaturedProjects />
-        <Experience />
-        <EngineeringHighlights />
-        <About />
-        <Contact />
+        <ScrollReveal direction="up">
+          <Hero />
+        </ScrollReveal>
+
+        <ScrollReveal direction="left" delay={40}>
+          <Skills />
+        </ScrollReveal>
+
+        <ScrollReveal direction="right" delay={60}>
+          <FeaturedProjects />
+        </ScrollReveal>
+
+        <ScrollReveal direction="left" delay={40}>
+          <Experience />
+        </ScrollReveal>
+
+        <ScrollReveal direction="right" delay={60}>
+          <EngineeringHighlights />
+        </ScrollReveal>
+
+        <ScrollReveal direction="left" delay={40}>
+          <About />
+        </ScrollReveal>
+
+        <ScrollReveal direction="right" delay={60}>
+          <Contact />
+        </ScrollReveal>
       </main>
 
-      <Footer />
+      <ScrollReveal direction="up" delay={40}>
+        <Footer />
+      </ScrollReveal>
     </>
   );
 }

@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-hidden bg-background"
+      className="relative overflow-hidden bg-transparent"
     >
       <div className="container-site grid min-h-[calc(100vh-80px)] gap-12 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16 lg:py-14">
         <div>

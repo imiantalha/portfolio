@@ -24,7 +24,7 @@ const details = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-background py-12 sm:py-16 md:py-20">
+    <section id="contact" className="bg-transparent py-12 sm:py-16 md:py-20">
       <div className="container-site">
         <div className="mb-8 text-center sm:mb-12">
           <p className="mb-2 text-sm font-medium text-primary sm:text-base">
