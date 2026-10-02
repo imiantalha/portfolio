@@ -26,16 +26,16 @@
 }
 
 html.dark {
-  --background: #020817;
+  --background: #050505;
   --foreground: #f8fafc;
-  --card: #0b1224;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
+  --card: #0b0b0d;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --accent: #18181b;
   --accent-foreground: #f8fafc;
   --primary: #3b82f6;
   --primary-foreground: #f8fafc;
-  --border: #1e293b;
+  --border: #27272a;
   --ring: #3b82f6;
   --grid-line: rgba(148, 163, 184, 0.085);
   --grid-point: rgba(59, 130, 246, 0.18);
@@ -187,10 +187,12 @@ a:focus-visible {
 /* Interactive portfolio background */
 .interactive-background {
   background: var(--background);
+  z-index: 0;
 }
 
 .interactive-background__grid {
   opacity: 0.72;
+  animation: grid-drift 28s linear infinite;
   background-image:
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
@@ -247,6 +249,15 @@ a:focus-visible {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
+@keyframes grid-drift {
+  from {
+    background-position: center;
+  }
+  to {
+    background-position: 32px 32px, 32px 32px, 32px 32px;
+  }
+}
+
 @media (max-width: 639px) {
   .interactive-background__grid {
     background-size: 26px 26px, 26px 26px, 26px 26px;
@@ -261,6 +272,10 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .interactive-background__glow {
     display: none;
+  }
+
+  .interactive-background__grid {
+    animation: none;
   }
 
   [data-reveal] {
