@@ -2,7 +2,7 @@ import { experiences } from "../data/site";
 
 export default function Experience() {
   return (
-    <section id="experience" className="bg-background py-8 sm:py-10 md:py-12">
+    <section id="experience" className="bg-transparent py-8 sm:py-10 md:py-12">
       <div className="container-site">
         <div className="mb-8 max-w-3xl sm:mb-10">
           <p className="mb-2 text-sm font-medium text-primary sm:text-base">Experience</p>
