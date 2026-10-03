@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: personal.name }],
   creator: personal.name,
   icons: {
-    icon: "/icon.svg",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Muhammad Talha | Software Engineer — Laravel, PHP & REST APIs",
