@@ -37,7 +37,7 @@ export default async function GithubCalendar() {
                 className="grid w-max grid-flow-col grid-rows-7 gap-1"
                 dir="ltr"
                 role="group"
-                aria-label={`${contributions.total} GitHub contributions in the last two months`}
+                aria-label={`${contributions.total} GitHub contributions in the last three months`}
               >
                 {contributions.days.map((day) => (
                   <a
@@ -54,7 +54,7 @@ export default async function GithubCalendar() {
               </div>
             </div>
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground sm:text-sm">
-              <p>{contributions.total} contributions in the last 2 months</p>
+              <p>{contributions.total} contributions in the last 3 months</p>
               <div className="flex items-center gap-2">
                 <span>Less</span>
                 <div className="flex gap-1">
