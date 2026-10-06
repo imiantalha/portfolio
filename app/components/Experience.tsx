@@ -11,12 +11,11 @@ export default function Experience() {
         </div>
         <div className="space-y-6">
           {experiences.map((experience) => (
-            <article key={`${experience.company}-${experience.period}`} className="grid gap-4 rounded-lg border border-border bg-card p-5 shadow-sm sm:p-8 lg:grid-cols-[180px_1fr] lg:gap-8">
-              <p className="text-sm font-medium text-muted-foreground">{experience.period}</p>
+            <article key={`${experience.company}-${experience.period}`} className="rounded-lg border border-border bg-card p-5 shadow-sm sm:p-8">
               <div>
                 <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                   <div><h3 className="text-xl font-semibold">{experience.role}</h3><p className="mt-1 text-sm font-medium text-primary">{experience.company}</p></div>
-                  <span className="text-sm text-muted-foreground">{experience.location}</span>
+                  <span className="text-sm text-muted-foreground">{experience.period} · {experience.location}</span>
                 </div>
                 <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">{experience.description}</p>
                 <ul className="mt-6 grid gap-3 sm:grid-cols-2">
