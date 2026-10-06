@@ -27,12 +27,18 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() =>
-    typeof window !== "undefined" &&
-    document.documentElement.classList.contains("dark")
+  // Keep the initial render deterministic so the server and client hydrate
+  // with the same theme. The inline script in layout.tsx applies the user's
+  // persisted/system theme before hydration, and the effect syncs the state.
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    const currentTheme = document.documentElement.classList.contains("dark")
       ? "dark"
-      : "light",
-  );
+      : "light";
+
+    setTheme(currentTheme);
+  }, []);
 
   useEffect(() => {
     applyTheme(theme);
