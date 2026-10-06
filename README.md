@@ -73,7 +73,7 @@ Enterprise workflow application supporting tender and bid processes, orders, shi
 
 **Software Engineer — Backend-Focused Full Stack**
 
-I have **3 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
+I have **2 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
 
 My work includes API development, business logic, database optimization, authentication and authorization, testing, asynchronous processing, third-party integrations, deployment, debugging, and ongoing production maintenance.
 

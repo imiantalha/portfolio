@@ -9,7 +9,7 @@ export const personal = {
   github: "https://github.com/imiantalha",
   githubUser: "imiantalha",
   linkedin: "https://www.linkedin.com/in/imiantalha",
-  resume: "/Muhammad-Talha-CV.pdf",
+  resume: "/Muhammad Talha Resume.pdf",
   fiverr: "https://www.fiverr.com/imiantalha",
   upwork: "https://www.upwork.com/freelancers/~0129afd82850749f05?viewMode=1",
 };
