@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "./components/ThemeProvider";
 import ScrollToTop from "./components/ScrollToTop";
+import SmoothScroll from "./components/SmoothScroll";
 import BackgroundGrid from "./components/BackgroundGrid";
 import { personal } from "./data/site";
 import "./globals.css";
@@ -139,6 +140,7 @@ export default function RootLayout({
             </a>
             {children}
             <ScrollToTop />
+            <SmoothScroll />
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
