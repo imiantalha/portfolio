@@ -1,6 +1,6 @@
 # Muhammad Talha — Software Engineer Portfolio
 
-> Backend-focused Software Engineer building production applications with PHP/Laravel, REST APIs, databases, and modern full-stack technologies.
+> Backend-focused Software Engineer building reliable production software with PHP/Laravel, REST APIs, databases, integrations, and modern full-stack technologies.
 
 [![Live Portfolio](https://img.shields.io/badge/Live%20Portfolio-Visit-111827?style=for-the-badge)](https://imiantalha.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-imiantalha-111827?style=for-the-badge&logo=github)](https://github.com/imiantalha)
@@ -8,13 +8,11 @@
 
 ## About
 
-This repository contains my personal developer portfolio and presents my experience as a **Software Engineer — Backend-Focused Full Stack**.
+This repository contains my personal developer portfolio and presents my work as a **Software Engineer — Backend-Focused Full Stack**.
 
-My professional work focuses on building and maintaining production applications, with particular strength in **Laravel/PHP, API engineering, database-driven systems, authentication and authorization, performance optimization, testing, background processing, integrations, deployment, and production support**.
+I have **3 years of professional software development experience**, with a primary focus on **PHP/Laravel, REST API engineering, database-driven systems, authentication and authorization, performance optimization, testing, background processing, third-party integrations, deployment, debugging, and production support**.
 
-The portfolio highlights selected engineering work, technical decisions, measurable outcomes, professional experience, and the broader technologies I work with.
-
-GitHub profile: [github.com/imiantalha](https://github.com/imiantalha)
+The portfolio combines professional experience with selected engineering case studies, technical highlights, projects, GitHub activity, and the technologies I use to build production software.
 
 ## Engineering Highlights
 
@@ -24,11 +22,15 @@ Investigated a production API operation taking approximately **2–3 seconds** a
 
 ### API Evolution & Backward Compatibility
 
-Maintained compatibility between older mobile clients and newer application versions by introducing **versioned API contracts**, allowing backend behavior and response structures to evolve without breaking existing consumers.
+Maintained compatibility between older mobile clients and newer application versions through **versioned API contracts**, allowing backend behavior and response structures to evolve without unnecessarily breaking existing consumers.
 
 ### Production Engineering
 
-Hands-on experience across development, testing, deployment, debugging, maintenance, and production hot-fix workflows using Git-based collaboration, queues, scheduled tasks, background workers, Docker, Nginx, and Vercel.
+Hands-on experience across implementation, testing, deployment, debugging, maintenance, and production hot-fix workflows using Git-based collaboration, queues, scheduled tasks, background workers, Docker, Nginx, and Vercel.
+
+### Full-Stack Delivery
+
+Primarily backend-focused, while also working with **React and Next.js** when a product requires end-to-end feature delivery.
 
 ## Selected Work
 
@@ -73,11 +75,24 @@ Enterprise workflow application supporting tender and bid processes, orders, shi
 
 **Software Engineer — Backend-Focused Full Stack**
 
-I have **2 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
+I have **3 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
 
 My work includes API development, business logic, database optimization, authentication and authorization, testing, asynchronous processing, third-party integrations, deployment, debugging, and ongoing production maintenance.
 
 Much of my professional code is proprietary, so the portfolio presents sanitized technical case studies and engineering outcomes rather than exposing private company source code.
+
+## Portfolio Engineering
+
+The portfolio itself is built with **Next.js, React, TypeScript, and Tailwind CSS**, with a focus on:
+
+- Responsive and accessible UI
+- Dark/light theme support
+- Smooth section navigation and scroll interactions
+- Scroll-based section reveals with reduced-motion support
+- Interactive GitHub contribution activity
+- Structured SEO metadata and Schema.org data
+- Maintainable component-based architecture
+- Responsive layouts across desktop and mobile
 
 ## Education
 
@@ -105,6 +120,12 @@ npm run dev
 
 Then open `http://localhost:3000` in your browser.
 
+### Lint
+
+```bash
+npm run lint
+```
+
 ### Production Build
 
 ```bash
@@ -122,14 +143,15 @@ app/
 ├── data/           # Portfolio content and project data
 ├── projects/       # Project-focused pages
 ├── layout.tsx      # Global metadata and application layout
-└── page.tsx        # Main portfolio page
+├── page.tsx        # Main portfolio page
+└── globals.css     # Global styles, theme tokens, motion, and responsive behavior
 ```
 
 ## Purpose
 
-This repository is both a personal portfolio and a public example of how I approach frontend implementation, content structure, accessibility, responsive UX, SEO, and maintainable component-based development.
+This repository is both a personal portfolio and a public example of how I approach frontend implementation, content structure, accessibility, responsive UX, SEO, motion, and maintainable component-based development.
 
-Professional production projects referenced here remain proprietary; the repository does not contain confidential company source code or credentials.
+Professional production projects referenced here remain proprietary; the repository does not contain confidential company source code, credentials, or private business data.
 
 ## Contact
 
