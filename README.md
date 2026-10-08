@@ -10,7 +10,7 @@
 
 This repository contains my personal developer portfolio and presents my work as a **Software Engineer — Backend-Focused Full Stack**.
 
-I have **3 years of professional software development experience**, with a primary focus on **PHP/Laravel, REST API engineering, database-driven systems, authentication and authorization, performance optimization, testing, background processing, third-party integrations, deployment, debugging, and production support**.
+I have **2 years of professional software development experience**, with a primary focus on **PHP/Laravel, REST API engineering, database-driven systems, authentication and authorization, performance optimization, testing, background processing, third-party integrations, deployment, debugging, and production support**.
 
 The portfolio combines professional experience with selected engineering case studies, technical highlights, projects, GitHub activity, and the technologies I use to build production software.
 
@@ -75,7 +75,7 @@ Enterprise workflow application supporting tender and bid processes, orders, shi
 
 **Software Engineer — Backend-Focused Full Stack**
 
-I have **3 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
+I have **2 years of professional software development experience**, working on production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
 
 My work includes API development, business logic, database optimization, authentication and authorization, testing, asynchronous processing, third-party integrations, deployment, debugging, and ongoing production maintenance.
 
