@@ -1,4 +1,3 @@
-import GithubCalendar from "./GithubCalendar";
 import { NamedIcon } from "./Icons";
 import { skills } from "../data/skills";
 import { toolsIUse } from "../data/site";
@@ -46,11 +45,6 @@ export default function Skills() {
               </span>
             ))}
           </div>
-        </div>
-
-        <div className="mt-6 rounded-lg border border-border bg-card p-6 sm:p-8">
-          <h3 className="mb-4 text-lg font-semibold">Days I Code</h3>
-          <GithubCalendar />
         </div>
       </div>
     </section>
