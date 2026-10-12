@@ -37,13 +37,6 @@ export const experiences = [
   { period: "Sep 10, 2024 — Present", role: "Software Engineer", company: "MindBlaze Technologies", location: "Lahore, Pakistan", description: "Backend-focused full-stack engineering across e-commerce, B2B, HR, and enterprise workflow systems, spanning implementation, testing, deployment, debugging, and production support.", highlights: ["Build PHP/Laravel applications and versioned REST APIs for web and mobile clients, with backward compatibility as a key API design concern.", "Implement authentication, RBAC, authorization policies, validation, CSRF protection, rate limiting, webhooks, and production safeguards.", "Write PHPUnit feature/API tests and verify critical workflows with Postman; build queues, jobs, scheduled processes, chunked processing, and reporting workflows.", "Investigate production issues across requests, logs, queries, queues, and application flow, including an optimization that reduced one API operation from ~2–3s to ~0.5s.", "Work with MySQL and external database systems on query optimization, indexing, multi-database workflows, and business data integrations.", "Use feature, bug-fix, hot-fix, development, and main Git workflows with pull requests, code reviews, cherry-picking, production fixes, Docker-based development, and Nginx/Vercel deployment environments."] },
 ];
 
-export const processSteps = [
-  { number: "01", title: "Discovery", description: "Understanding requirements, constraints, existing systems, and business goals before writing code." },
-  { number: "02", title: "Design", description: "Shaping API contracts, data models, and practical architecture around how the product will actually be used." },
-  { number: "03", title: "Development", description: "Building Laravel applications, REST APIs, integrations, tests, and background jobs with production safeguards." },
-  { number: "04", title: "Deployment", description: "Shipping with Docker, Nginx, Vercel, or Railway, then supporting the system through debugging, fixes, and maintenance." },
-];
-
 export const about = { subtitle: "Why Hire Me", title: "Engineering experience you can see in the work", description: "My value is not just the technologies I use. It is the experience of solving real production problems across APIs, databases, integrations, performance, background processing, and deployment — and understanding how those pieces affect the product as a whole." };
 
 export const whyChooseMe = [
