@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { projects } from "../data/projects";
 
-const siteUrl = "https://imiantalha.vercel.app";
 
 export const metadata: Metadata = {
   title: "Projects",
