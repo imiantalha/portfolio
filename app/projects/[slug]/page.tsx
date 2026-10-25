@@ -6,6 +6,8 @@ import Navbar from "../../components/Navbar";
 import { getProjectBySlug, projects } from "../../data/projects";
 import { personal } from "../../data/site";
 
+const siteUrl = "https://imiantalha.vercel.app";
+
 
 type PageProps = {
   params: Promise<{ slug: string }>;
