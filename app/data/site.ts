@@ -26,7 +26,7 @@ export const hero = {
   badge: "Open to opportunities",
   role: "Software Engineer · Backend-Focused Full Stack",
   title: "Building reliable software for real-world business needs.",
-  description: "I'm Muhammad Talha, a backend-focused Software Engineer with 2 years of professional experience building production applications with PHP and Laravel, REST APIs, databases, integrations, testing, background processing, and deployment. I also work across React and Next.js when the product requires full-stack delivery.",
+  description: "I'm Muhammad Talha, a backend-focused Software Engineer with 3 years of professional experience building production applications with PHP and Laravel, REST APIs, databases, integrations, testing, background processing, and deployment. I also work across React and Next.js when the product requires full-stack delivery.",
   primaryButton: "Explore My Work",
   secondaryButton: "Let's Talk",
   technologies: ["PHP", "Laravel", "REST APIs", "MySQL", "React", "Next.js"],
