@@ -4,7 +4,6 @@ export type ProjectImage = {
 };
 
 export type Project = {
-  number: string;
   slug: string;
   title: string;
   category: string;
@@ -34,7 +33,6 @@ export type Project = {
 };
 
 export const mallshark: Project = {
-  number: "01",
   slug: "mallshark",
   title: "Mallshark",
   category: "Multi-Vendor E-commerce Marketplace",
@@ -110,7 +108,6 @@ export const mallshark: Project = {
 };
 
 export const textileSouk: Project = {
-  number: "02",
   slug: "textile-souk",
   title: "Textile Souk",
   category: "B2B Textile Marketplace · API-First Backend",
@@ -191,7 +188,6 @@ export const textileSouk: Project = {
 };
 
 export const ems: Project = {
-  number: "03",
   slug: "employee-management-system",
   title: "Employee Management System",
   category: "HR & Employee Management",
@@ -224,7 +220,6 @@ export const ems: Project = {
 };
 
 export const pakRailways: Project = {
-  number: "04",
   slug: "pak-railways-tender-workflow",
   title: "Pak Railways Tender Workflow Management System",
   category: "Enterprise Workflow Management",
@@ -258,7 +253,6 @@ export const pakRailways: Project = {
 };
 
 export const doorToDoor: Project = {
-  number: "05",
   slug: "door-to-door",
   title: "Door to Door / Fresco Canada",
   category: "Canada-Focused Single-Vendor E-commerce",
@@ -282,8 +276,6 @@ export const doorToDoor: Project = {
   ],
 };
 
-export const featuredProjects: Project[] = [mallshark, textileSouk];
-export const otherProjects: Project[] = [ems, pakRailways, doorToDoor];
 export const projects: Project[] = [mallshark, textileSouk, ems, pakRailways, doorToDoor];
 
 export function getProjectBySlug(slug: string) {
