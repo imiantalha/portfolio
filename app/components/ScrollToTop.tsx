@@ -7,10 +7,27 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    onScroll();
+    let frame = 0;
+    let currentVisibility = false;
+
+    const updateVisibility = () => {
+      const nextVisibility = window.scrollY > 400;
+      if (nextVisibility === currentVisibility) return;
+      currentVisibility = nextVisibility;
+      setVisible(nextVisibility);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateVisibility);
+    };
+
+    updateVisibility();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   if (!visible) return null;
