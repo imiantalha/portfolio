@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "../../components/Footer";
@@ -106,12 +107,13 @@ export default async function ProjectPage({ params }: PageProps) {
           </p>
 
           {project.gallery[0] ? (
-            <div className="mt-10 overflow-hidden rounded-lg border border-border bg-muted">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="relative mt-10 aspect-video max-h-[480px] overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
                 src={project.gallery[0].src}
                 alt={project.gallery[0].alt}
-                className="max-h-[480px] w-full object-cover object-top"
+                fill
+                sizes="(max-width: 1024px) 100vw, 1200px"
+                className="object-cover object-top"
               />
             </div>
           ) : null}
@@ -208,13 +210,14 @@ export default async function ProjectPage({ params }: PageProps) {
                 {project.gallery.slice(1).map((image) => (
                   <div
                     key={image.src}
-                    className="overflow-hidden rounded-lg border border-border bg-muted"
+                    className="relative h-56 overflow-hidden rounded-lg border border-border bg-muted"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.alt}
-                      className="h-56 w-full object-cover object-top"
+                      fill
+                      sizes="(max-width: 639px) 100vw, 50vw"
+                      className="object-cover object-top"
                     />
                   </div>
                 ))}
