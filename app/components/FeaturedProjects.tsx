@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { projects } from "../data/projects";
@@ -72,10 +73,15 @@ export default function FeaturedProjects() {
               return (
                 <article key={project.slug} className="w-[300px] flex-shrink-0 overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:w-[350px] md:w-[400px]">
                   <Link href={`/projects/${project.slug}`} className="block">
-                    <div className="aspect-video overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                    <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                       {project.gallery[0] ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={project.gallery[0].src} alt={project.gallery[0].alt} className="h-full w-full object-cover object-top" />
+                        <Image
+                          src={project.gallery[0].src}
+                          alt={project.gallery[0].alt}
+                          fill
+                          sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, 400px"
+                          className="object-cover object-top"
+                        />
                       ) : (
                         <div className="flex h-full items-center justify-center text-primary/40">{project.title}</div>
                       )}
