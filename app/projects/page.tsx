@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -60,13 +61,14 @@ export default function ProjectsPage() {
                 className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <article>
-                  <div className="aspect-video overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                  <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
                     {project.gallery[0] ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <Image
                         src={project.gallery[0].src}
                         alt={project.gallery[0].alt}
-                        className="h-full w-full object-cover object-top"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top"
                       />
                     ) : null}
                   </div>
