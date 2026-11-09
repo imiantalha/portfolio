@@ -27,30 +27,23 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Keep the initial render deterministic so the server and client hydrate
-  // with the same theme. The inline script in layout.tsx applies the user's
-  // persisted/system theme before hydration, and the effect syncs the state.
+  // The inline script in layout.tsx applies the persisted/system theme before
+  // hydration. Read that value without re-applying the default light state.
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const currentTheme = document.documentElement.classList.contains("dark")
-        ? "dark"
-        : "light";
+    const currentTheme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
 
-      setTheme(currentTheme);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
+    setTheme(currentTheme);
   }, []);
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
 
   const toggleTheme = useCallback(() => {
-    setTheme((value) => (value === "light" ? "dark" : "light"));
-  }, []);
+    const nextTheme = theme === "light" ? "dark" : "light";
+    applyTheme(nextTheme);
+    setTheme(nextTheme);
+  }, [theme]);
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
