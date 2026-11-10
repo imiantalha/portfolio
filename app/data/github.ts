@@ -7,7 +7,6 @@ export type ContributionDay = {
 };
 
 type GithubApiResponse = {
-  total?: Record<string, number>;
   contributions?: ContributionDay[];
 };
 
