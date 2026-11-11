@@ -17,6 +17,24 @@ function toDateKey(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
+function subtractMonths(date: Date, months: number) {
+  const result = new Date(date);
+  const originalDay = result.getDate();
+
+  // Move to day one first so dates near month-end do not overflow.
+  result.setDate(1);
+  result.setMonth(result.getMonth() - months);
+
+  const lastDayOfTargetMonth = new Date(
+    result.getFullYear(),
+    result.getMonth() + 1,
+    0,
+  ).getDate();
+
+  result.setDate(Math.min(originalDay, lastDayOfTargetMonth));
+  return result;
+}
+
 function buildThreeMonthWindow(contributions: ContributionDay[]) {
   const byDate = new Map(
     contributions.map((day) => [day.date, day] as const),
@@ -25,8 +43,7 @@ function buildThreeMonthWindow(contributions: ContributionDay[]) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const start = new Date(today);
-  start.setMonth(start.getMonth() - 3);
+  const start = subtractMonths(today, 3);
 
   const firstDay = new Date(start);
   firstDay.setDate(firstDay.getDate() - firstDay.getDay());

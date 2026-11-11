@@ -4,9 +4,8 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
 } from "react";
 
 export type Theme = "light" | "dark";
@@ -18,6 +17,25 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+function getThemeSnapshot(): Theme {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): Theme {
+  return "light";
+}
+
+function subscribeToTheme(onStoreChange: () => void) {
+  const observer = new MutationObserver(onStoreChange);
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  return () => observer.disconnect();
+}
+
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.remove("light", "dark");
@@ -28,21 +46,16 @@ function applyTheme(theme: Theme) {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // The inline script in layout.tsx applies the persisted/system theme before
-  // hydration. Read that value without re-applying the default light state.
-  const [theme, setTheme] = useState<Theme>("light");
-
-  useEffect(() => {
-    const currentTheme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-
-    setTheme(currentTheme);
-  }, []);
+  // hydration. useSyncExternalStore reads that DOM state without an effect
+  // that synchronously updates React state after mount.
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   const toggleTheme = useCallback(() => {
-    const nextTheme = theme === "light" ? "dark" : "light";
-    applyTheme(nextTheme);
-    setTheme(nextTheme);
+    applyTheme(theme === "light" ? "dark" : "light");
   }, [theme]);
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
