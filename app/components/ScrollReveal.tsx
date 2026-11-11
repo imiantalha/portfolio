@@ -23,18 +23,23 @@ export default function ScrollReveal({
     const element = ref.current;
     if (!element) return;
 
+    const reveal = () => {
+      element.dataset.revealed = "true";
+    };
+
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (reducedMotion) {
-      element.dataset.revealed = "true";
+    // Keep content visible when animations are disabled or unsupported.
+    if (reducedMotion || typeof IntersectionObserver === "undefined") {
+      reveal();
       return;
     }
 
-    const reveal = () => {
-      element.dataset.revealed = "true";
-    };
+    // Opt into the hidden/reveal styles only when the observer is available.
+    // This keeps the page readable if JavaScript or the observer fails.
+    element.dataset.revealReady = "true";
 
     const observer = new IntersectionObserver(
       ([entry]) => {
