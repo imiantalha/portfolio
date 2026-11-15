@@ -1,164 +1,123 @@
 # Muhammad Talha — Software Engineer Portfolio
 
-> Backend-focused Software Engineer building reliable production software with PHP/Laravel, REST APIs, databases, integrations, and modern full-stack technologies.
+Backend-focused Software Engineer building production applications with **PHP, Laravel, REST APIs, databases, integrations, and modern full-stack technologies**.
 
-[![Live Portfolio](https://img.shields.io/badge/Live%20Portfolio-Visit-111827?style=for-the-badge)](https://imiantalha.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-imiantalha-111827?style=for-the-badge&logo=github)](https://github.com/imiantalha)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Muhammad%20Talha-111827?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/imiantalha/)
+<p align="left">
+  <a href="https://imiantalha.vercel.app/"><img src="https://img.shields.io/badge/Live%20Portfolio-Visit-111827?style=for-the-badge" alt="Visit live portfolio"></a>
+  <a href="https://github.com/imiantalha"><img src="https://img.shields.io/badge/GitHub-imiantalha-111827?style=for-the-badge&logo=github" alt="GitHub profile"></a>
+  <a href="https://www.linkedin.com/in/imiantalha/"><img src="https://img.shields.io/badge/LinkedIn-Connect-111827?style=for-the-badge&logo=linkedin" alt="LinkedIn profile"></a>
+</p>
 
-## About
+## Overview
 
-This repository contains my personal developer portfolio and presents my work as a **Software Engineer — Backend-Focused Full Stack**.
+This repository contains my personal portfolio, built to present my engineering experience, selected projects, technical strengths, and approach to building and maintaining production software.
 
-My professional experience centers on **PHP/Laravel, REST API engineering, database-driven systems, authentication and authorization, performance optimization, testing, background processing, third-party integrations, deployment, debugging, and production support**.
-
-The portfolio combines professional experience with selected engineering case studies, technical highlights, projects, GitHub activity, and the technologies I use to build production software.
+My work is primarily focused on backend engineering with PHP/Laravel and REST APIs, including database design and optimization, authentication and authorization, background processing, third-party integrations, automated testing, deployment, debugging, and production support. I also work with React and Next.js to deliver full-stack features when needed.
 
 ## Engineering Highlights
 
-### Performance Optimization
+- **Performance optimization:** Improved a production API operation from approximately 2–3 seconds to around 0.5 seconds through query optimization and database indexing.
+- **Backward-compatible APIs:** Supported older mobile clients while evolving API contracts and response structures.
+- **Production ownership:** Worked across implementation, testing, deployment, troubleshooting, maintenance, and hot-fix workflows.
+- **Full-stack delivery:** Built backend systems with Laravel and user-facing experiences with React and Next.js.
 
-Investigated a production API operation taking approximately **2–3 seconds** and reduced the response time to approximately **0.5 seconds** through database indexing and query optimization.
+## Selected Projects
 
-### API Evolution & Backward Compatibility
+| Project | Overview | Engineering focus |
+| --- | --- | --- |
+| **Mallshark** | Multi-vendor e-commerce marketplace | Laravel, REST APIs, payments, shipping, search, queues, and marketplace workflows |
+| **Textile Souk** | B2B textile marketplace and mobile application backend | Laravel, MySQL, SQL Server integrations, pricing, orders, shipments, and Firebase notifications |
+| **Employee Management System** | Employee management application | Laravel, Next.js, React, authentication, and role-based access control |
+| **Pak Railways Tender Workflow** | Tender and bid management platform | Laravel, approvals, RBAC, reporting, search, and bulk processing |
 
-Maintained compatibility between older mobile clients and newer application versions through **versioned API contracts**, allowing backend behavior and response structures to evolve without unnecessarily breaking existing consumers.
+Professional production systems referenced in the portfolio may be proprietary. Project descriptions are presented as sanitized case studies and do not expose private company source code or business data.
 
-### Production Engineering
+## Technology Stack
 
-Hands-on experience across implementation, testing, deployment, debugging, maintenance, and production hot-fix workflows using Git-based collaboration, queues, scheduled tasks, background workers, Docker, Nginx, and Vercel.
-
-### Full-Stack Delivery
-
-Primarily backend-focused, while also working with **React and Next.js** when a product requires end-to-end feature delivery.
-
-## Selected Work
-
-### Mallshark
-
-Multi-vendor e-commerce marketplace involving vendors, customers, products, orders, payments, shipping, search, notifications, inventory, and warehouse workflows.
-
-**Engineering focus:** Laravel/PHP, REST APIs, MySQL, SQL Server integrations, queues, payments, shipping, search, performance optimization, and production support.
-
-### Textile Souk
-
-B2B textile marketplace and mobile application backend integrating application data with external systems.
-
-**Engineering focus:** Laravel/PHP, REST APIs, MySQL, MS SQL Server, customer/region-specific pricing, orders, inquiries, shipments, cargo workflows, and Firebase notifications.
-
-### Employee Management System
-
-Full-stack employee management application built around authenticated API workflows and role-based access control.
-
-**Engineering focus:** Laravel, Next.js, React, Sanctum, RBAC, business workflows, and API integration.
-
-### Pak Railways Tender Workflow Management System
-
-Enterprise workflow application supporting tender and bid processes, orders, shipments, reporting, search, and large-data imports.
-
-**Engineering focus:** Laravel, REST APIs, RBAC, reporting, search, bulk processing, and database-driven workflows.
-
-## Technical Focus
-
-| Area | Technologies / Practices |
+| Area | Technologies |
 | --- | --- |
-| **Backend** | PHP, Laravel, REST APIs |
-| **Frontend** | React, Next.js, TypeScript, Tailwind CSS |
-| **Databases** | MySQL, PostgreSQL, SQL Server |
-| **Application Engineering** | Authentication, RBAC, validation, policies, queues, jobs, events, notifications, scheduled tasks |
-| **Integrations** | Payments, shipping, search, Firebase, third-party APIs |
-| **Performance** | Query optimization, indexing, caching, bulk processing |
-| **Testing & Quality** | PHPUnit, API testing, debugging, code review, Git workflows |
-| **Deployment** | Docker, Nginx, Vercel, cron, background workers, production support |
+| Backend | PHP, Laravel, REST APIs |
+| Frontend | React, Next.js, TypeScript, Tailwind CSS |
+| Databases | MySQL, PostgreSQL, Microsoft SQL Server |
+| Application engineering | Authentication, authorization, RBAC, queues, jobs, events, notifications, scheduled tasks |
+| Integrations | Payment gateways, shipping providers, Firebase, search services, third-party APIs |
+| Quality | PHPUnit, API testing, debugging, code review, Git |
+| Delivery | Docker, Nginx, Vercel, background workers, production support |
 
-## Professional Experience
+## Portfolio Features
 
-**Software Engineer — Backend-Focused Full Stack**
+- Responsive layouts for desktop, tablet, and mobile
+- Light and dark themes
+- Accessible navigation and skip-to-content support
+- Smooth in-page navigation that respects reduced-motion preferences and user interaction
+- GitHub contribution activity with a graceful fallback when the external data source is unavailable
+- Project detail pages and structured portfolio content
+- SEO metadata, Open Graph tags, sitemap, robots rules, and Schema.org structured data
+- Reusable React components and centralized portfolio data
 
-Professional experience building and supporting production applications and business systems across e-commerce, B2B, HR, and enterprise workflows.
+## Built With
 
-My work includes API development, business logic, database optimization, authentication and authorization, testing, asynchronous processing, third-party integrations, deployment, debugging, and ongoing production maintenance.
+- [Next.js](https://nextjs.org/) (App Router)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-Much of my professional code is proprietary, so the portfolio presents sanitized technical case studies and engineering outcomes rather than exposing private company source code.
+## Run Locally
 
-## Portfolio Engineering
+### Requirements
 
-The portfolio itself is built with **Next.js, React, TypeScript, and Tailwind CSS**, with a focus on:
-
-- Responsive and accessible UI
-- Dark/light theme support
-- Smooth section navigation and scroll interactions
-- Scroll-based section reveals with reduced-motion support
-- Interactive GitHub contribution activity
-- Structured SEO metadata and Schema.org data
-- Maintainable component-based architecture
-- Responsive layouts across desktop and mobile
-
-## Education
-
-**Bachelor of Science in Computer Science**  
-Virtual University of Pakistan
-
-## Running Locally
-
-### Prerequisites
-
-- Node.js 20.9+
+- Node.js 20.9 or later
 - npm
 
-### Installation
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Development
+### Start the development server
 
 ```bash
 npm run dev
 ```
 
-Then open `http://localhost:3000` in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Lint
+### Run lint checks
 
 ```bash
 npm run lint
 ```
 
-### Production Build
+### Create and run a production build
 
 ```bash
 npm run build
 npm start
 ```
 
-The portfolio is deployed on Vercel.
-
 ## Repository Structure
 
 ```text
 app/
-├── components/     # Reusable portfolio sections and UI components
-├── data/           # Portfolio content and project data
-├── projects/       # Project-focused pages
-├── layout.tsx      # Global metadata and application layout
-├── page.tsx        # Main portfolio page
-└── globals.css     # Global styles, theme tokens, motion, and responsive behavior
+├── components/       # Reusable UI and portfolio sections
+├── data/             # Personal, project, and GitHub contribution data
+├── projects/         # Project listing and detail routes
+├── globals.css       # Global styles, theme tokens, and responsive behavior
+├── layout.tsx        # Root layout, metadata, and structured data
+├── page.tsx          # Portfolio home page
+├── robots.ts         # Search-engine crawler rules
+└── sitemap.ts        # Sitemap generation
+public/
+└── images/           # Public portfolio images and assets
 ```
-
-## Purpose
-
-This repository is both a personal portfolio and a public example of how I approach frontend implementation, content structure, accessibility, responsive UX, SEO, motion, and maintainable component-based development.
-
-Professional production projects referenced here remain proprietary; the repository does not contain confidential company source code, credentials, or private business data.
 
 ## Contact
 
-- **Email:** muhammadtalha.codes@gmail.com
-- **GitHub:** https://github.com/imiantalha
-- **LinkedIn:** https://www.linkedin.com/in/imiantalha/
-- **Portfolio:** https://imiantalha.vercel.app/
+- **Email:** [muhammadtalha.codes@gmail.com](mailto:muhammadtalha.codes@gmail.com)
+- **GitHub:** [github.com/imiantalha](https://github.com/imiantalha)
+- **LinkedIn:** [linkedin.com/in/imiantalha](https://www.linkedin.com/in/imiantalha)
+- **Portfolio:** [imiantalha.vercel.app](https://imiantalha.vercel.app)
 
 ## License
 

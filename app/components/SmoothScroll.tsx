@@ -9,7 +9,23 @@ const easeOutQuint = (progress: number) => 1 - Math.pow(1 - progress, 5);
 
 export default function SmoothScroll() {
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    let frameId: number | null = null;
+
+    const cancelAnimation = () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+    };
+
+    const handleInterruption = () => cancelAnimation();
+
+    const handleMotionPreferenceChange = (event: MediaQueryListEvent) => {
+      if (event.matches) cancelAnimation();
+    };
 
     const handleClick = (event: MouseEvent) => {
       if (prefersReducedMotion.matches) return;
@@ -23,10 +39,19 @@ export default function SmoothScroll() {
       const hash = link.getAttribute("href");
       if (!hash || hash === "#") return;
 
-      const section = document.querySelector(hash);
-      if (!(section instanceof HTMLElement)) return;
+      let section: HTMLElement | null;
+
+      try {
+        section = document.getElementById(decodeURIComponent(hash.slice(1)));
+      } catch {
+        // Leave malformed or unsupported fragment links to the browser.
+        return;
+      }
+
+      if (!section) return;
 
       event.preventDefault();
+      cancelAnimation();
 
       const start = window.scrollY;
       const targetY = Math.max(
@@ -41,19 +66,34 @@ export default function SmoothScroll() {
         window.scrollTo(0, start + distance * easeOutQuint(progress));
 
         if (progress < 1) {
-          requestAnimationFrame(animate);
+          frameId = window.requestAnimationFrame(animate);
         } else {
+          frameId = null;
           window.history.replaceState(null, "", hash);
         }
       };
 
-      requestAnimationFrame(animate);
+      frameId = window.requestAnimationFrame(animate);
     };
 
     document.addEventListener("click", handleClick);
+    window.addEventListener("wheel", handleInterruption, { passive: true });
+    window.addEventListener("touchstart", handleInterruption, { passive: true });
+    window.addEventListener("pointerdown", handleInterruption, { passive: true });
+    window.addEventListener("keydown", handleInterruption);
+    prefersReducedMotion.addEventListener("change", handleMotionPreferenceChange);
 
     return () => {
+      cancelAnimation();
       document.removeEventListener("click", handleClick);
+      window.removeEventListener("wheel", handleInterruption);
+      window.removeEventListener("touchstart", handleInterruption);
+      window.removeEventListener("pointerdown", handleInterruption);
+      window.removeEventListener("keydown", handleInterruption);
+      prefersReducedMotion.removeEventListener(
+        "change",
+        handleMotionPreferenceChange,
+      );
     };
   }, []);
 
